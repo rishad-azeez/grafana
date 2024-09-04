@@ -79,20 +79,20 @@ func (s *ServiceImpl) GetNavTree(c *contextmodel.ReqContext, prefs *pref.Prefere
 	treeRoot.AddSection(s.getHomeNode(c, prefs))
 
 	if hasAccess(ac.EvalPermission(dashboards.ActionDashboardsRead)) {
-		starredItemsLinks, err := s.buildStarredItemsNavLinks(c)
-		if err != nil {
-			return nil, err
-		}
+		// starredItemsLinks, err := s.buildStarredItemsNavLinks(c)
+		// if err != nil {
+		// 	return nil, err
+		// }
 
-		treeRoot.AddSection(&navtree.NavLink{
-			Text:           "Starred",
-			Id:             "starred",
-			Icon:           "star",
-			SortWeight:     navtree.WeightSavedItems,
-			Children:       starredItemsLinks,
-			EmptyMessageId: "starred-empty",
-			Url:            s.cfg.AppSubURL + "/dashboards?starred",
-		})
+		// treeRoot.AddSection(&navtree.NavLink{
+		// 	Text:           "Starred",
+		// 	Id:             "starred",
+		// 	Icon:           "star",
+		// 	SortWeight:     navtree.WeightSavedItems,
+		// 	Children:       starredItemsLinks,
+		// 	EmptyMessageId: "starred-empty",
+		// 	Url:            s.cfg.AppSubURL + "/dashboards?starred",
+		// })
 	}
 
 	if c.IsPublicDashboardView() || hasAccess(ac.EvalAny(
@@ -162,22 +162,22 @@ func (s *ServiceImpl) GetNavTree(c *contextmodel.ReqContext, prefs *pref.Prefere
 }
 
 func (s *ServiceImpl) getHomeNode(c *contextmodel.ReqContext, prefs *pref.Preference) *navtree.NavLink {
-	homeUrl := s.cfg.AppSubURL + "/"
-	if !c.IsSignedIn && !s.cfg.AnonymousEnabled {
-		homeUrl = s.cfg.AppSubURL + "/login"
-	} else {
-		homePage := s.cfg.HomePage
+	// homeUrl := s.cfg.AppSubURL + "/"
+	// if !c.IsSignedIn && !s.cfg.AnonymousEnabled {
+	// 	homeUrl = s.cfg.AppSubURL + "/login"
+	// } else {
+	// 	homePage := s.cfg.HomePage
 
-		if prefs.HomeDashboardID == 0 && len(homePage) > 0 {
-			homeUrl = homePage
-		}
-	}
+	// 	if prefs.HomeDashboardID == 0 && len(homePage) > 0 {
+	// 		homeUrl = homePage
+	// 	}
+	// }
 
 	homeNode := &navtree.NavLink{
-		Text:       "Home",
-		Id:         "home",
-		Url:        homeUrl,
-		Icon:       "home-alt",
+		// Text: "Home",
+		// Id:  "home",
+		// Url: homeUrl,
+		// Icon:       "home-alt",
 		SortWeight: navtree.WeightHome,
 	}
 	return homeNode
@@ -428,23 +428,23 @@ func (s *ServiceImpl) buildDataConnectionsNavLink(c *contextmodel.ReqContext) *n
 
 	if hasAccess(datasources.ConfigurationPageAccess) {
 		// Add new connection
-		children = append(children, &navtree.NavLink{
-			Id:       "connections-add-new-connection",
-			Text:     "Add new connection",
-			SubTitle: "Browse and create new connections",
-			Url:      baseUrl + "/add-new-connection",
-			Children: []*navtree.NavLink{},
-			Keywords: []string{"csv", "graphite", "json", "loki", "prometheus", "sql", "tempo"},
-		})
+		// children = append(children, &navtree.NavLink{
+		// 	Id:       "connections-add-new-connection",
+		// 	Text:     "Add new connection",
+		// 	SubTitle: "Browse and create new connections",
+		// 	Url:      baseUrl + "/add-new-connection",
+		// 	Children: []*navtree.NavLink{},
+		// 	Keywords: []string{"csv", "graphite", "json", "loki", "prometheus", "sql", "tempo"},
+		// })
 
 		// Data sources
-		children = append(children, &navtree.NavLink{
-			Id:       "connections-datasources",
-			Text:     "Data sources",
-			SubTitle: "View and manage your connected data source connections",
-			Url:      baseUrl + "/datasources",
-			Children: []*navtree.NavLink{},
-		})
+		// children = append(children, &navtree.NavLink{
+		// 	Id:       "connections-datasources",
+		// 	Text:     "Data sources",
+		// 	SubTitle: "View and manage your connected data source connections",
+		// 	Url:      baseUrl + "/datasources",
+		// 	Children: []*navtree.NavLink{},
+		// })
 	}
 
 	if len(children) > 0 {

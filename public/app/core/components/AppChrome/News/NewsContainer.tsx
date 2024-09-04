@@ -15,7 +15,7 @@ interface NewsContainerProps {
 }
 
 export function NewsContainer({ className }: NewsContainerProps) {
-  const [showNewsDrawer, onToggleShowNewsDrawer] = useToggle(false);
+  const [showNewsDrawer, onToggleShowNewsDrawer] = useToggle(true);
   const styles = useStyles2(getStyles);
 
   return (
@@ -28,7 +28,7 @@ export function NewsContainer({ className }: NewsContainerProps) {
             <div className={styles.title}>
               <Text element="h3">{t('news.title', 'Latest from the blog')}</Text>
               <a
-                href="https://grafana.com/blog/"
+                href="https://www.d4donline.com/"
                 target="_blank"
                 rel="noreferrer"
                 title="Go to Grafana labs blog"

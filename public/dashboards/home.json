@@ -49,10 +49,10 @@
       "id": 4,
       "links": [],
       "options": {
-        "feedUrl": "https://grafana.com/blog/news.xml"
+        "feedUrl": "https://www.d4donline.com/"
       },
-      "title": "Latest from the blog",
-      "type": "//Original type: VOIXBI news",
+      "title": "Latest offers",
+      "type": "//Original type: flyers",
       "_comment": "Original type: news"
     }
   ],
