@@ -3,7 +3,7 @@
 .git
 .gitignore
 .vscode
-bin
+# bin
 data*
 dist
 docker
