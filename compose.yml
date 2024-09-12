@@ -12,6 +12,7 @@ services:
       - ./bin:/app/bin
       - ./public:/app/public
       - ./conf:/app/conf
+      - ./data:/app/data
     working_dir: /app
     command: ["/app/bin/grafana-server", "server", "--homepath=/app"]
 
