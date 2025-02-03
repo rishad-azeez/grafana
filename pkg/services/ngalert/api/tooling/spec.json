@@ -5269,6 +5269,9 @@
           "items": {
             "$ref": "#/definitions/TimeIntervalItem"
           }
+        },
+        "version": {
+          "type": "string"
         }
       }
     },
@@ -8214,6 +8217,7 @@
       }
     },
     "gettableAlerts": {
+      "description": "GettableAlerts gettable alerts",
       "type": "array",
       "items": {
         "type": "object",
